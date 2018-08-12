@@ -17,6 +17,7 @@ __pycache__/
 *.mp4
 *.jpg
 *.png
+!docker_whale.jpg
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
