@@ -1,4 +1,4 @@
-all: build test_video opencv
+all: build test opencv
 
 build:
 	@docker-compose build
@@ -15,13 +15,13 @@ clean-docker:
 	@docker system prune -af
 
 opencv:
-	@docker-compose run -e DEBUG web python opencv.py -h
+	@docker-compose run -e DEBUG vision python opencv.py -h
 
 purge: clean clean-docker
 
 status:
 	@docker stats --no-stream
 
-test_video:
-	@docker-compose run -e DEBUG web bash ./app/opencv/get_test_video.sh
-	@docker-compose run -e DEBUG web python opencv.py -v test_video/big_buck_bunny.mp4
+test:
+	@docker-compose run -e DEBUG vision bash ./app/opencv/get_test_video.sh
+	@docker-compose run -e DEBUG vision python opencv.py -v test_video/big_buck_bunny.mp4
