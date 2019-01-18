@@ -120,4 +120,8 @@ ENV/
 # Project-specific
 yolov3.weights
 yolo_output/
+test_video/
 
+# Image Sets
+CARPK_devkit/
+PUCPR+_devkit/

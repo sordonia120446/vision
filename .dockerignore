@@ -1,2 +1,7 @@
 venv/
 .vscode/
+.git/
+.gitignore
+test_video/
+CARPK_devkit/
+PUCPR+_devkit/
