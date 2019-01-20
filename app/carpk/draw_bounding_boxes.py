@@ -12,6 +12,7 @@ import cv2
 
 # Constants and module-level vars
 YOLO_CAR_ID = 6  # based on voc.names
+VALIDATION_RATIO = 0.1  # 10% of training data for validation/testing
 
 
 def parse_args():
@@ -150,18 +151,23 @@ def convert_to_yolo(args):
     # This assumes current working directory is a super-directory of the data folder
     working_dir = os.path.join(os.getcwd(), input_folder, 'data')
 
-    # write all image paths to a `list_file`
-    list_filename = os.path.join(working_dir, f'{input_folder}_train.txt')
-    list_file = open(list_filename, 'w')
+    # write all image paths to the train or test files
+    list_train_filename = os.path.join(working_dir, f'{input_folder}_train.txt')
+    list_test_filename = os.path.join(working_dir, f'{input_folder}_test.txt')
+    list_file_train = open(list_train_filename, 'w')
+    list_file_test = open(list_test_filename, 'w')
 
     # write to a labels directory a set of files each corresponding
     # to a different image file.
-    for image_filename in os.listdir(args.images_dir):
+    for ind, image_filename in enumerate(os.listdir(args.images_dir)):
         base_filename = os.path.splitext(os.path.basename(image_filename))[0]
 
-        # Write image path. This might be different from working_dir
+        # Write image path to train.txt or test.txt
         img_path = os.path.join(args.target_dir, args.images_dir, image_filename)
-        list_file.write(img_path + '\n')
+        if ind % round(1/VALIDATION_RATIO) > 0:
+            list_file_train.write(img_path + '\n')
+        else:
+            list_file_test.write(img_path + '\n')
 
         # load ground truth bounding box
         gtBBs = load_gt_bbox(os.path.join(args.annots_dir, f'{base_filename}.txt'))
@@ -178,7 +184,8 @@ def convert_to_yolo(args):
             f_out.writelines(labels)
 
     # Close all files
-    list_file.close()
+    list_file_train.close()
+    list_file_test.close()
 
 
 def main():
