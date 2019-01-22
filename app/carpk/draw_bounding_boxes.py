@@ -139,7 +139,7 @@ def convert_annotation(gtBBs, size):
         # 6 0.127 0.493993993994 0.246 0.357357357357
         # label = str(cls_id) + " " + " ".join([str(a) for a in bounding_box]) + '\n'
         bb_str = ' '.join([str(coordinate) for coordinate in bounding_box])
-        label = f'{YOLO_CAR_ID} {bb_str}'
+        label = f'{YOLO_CAR_ID} {bb_str}\n'
         labels.append(label)
 
     return labels
