@@ -12,6 +12,7 @@ echo "Compiling PUCPR and CARPK"
 
 echo -e "\nCompiling ${CYAN}PUCPR+${NC} ground truth bounding boxes \n"
 mkdir -p $PUCPR_DIR/data/labels
+mkdir -p $PUCPR_DIR/data/yolo_drawings
 python app/carpk/draw_bounding_boxes.py \
     --yolo --annots_dir $PUCPR_DIR/data/Annotations/ \
     --images_dir $PUCPR_DIR/data/Images/ \
@@ -19,6 +20,7 @@ python app/carpk/draw_bounding_boxes.py \
 
 echo -e "\nCompiling ${CYAN}CARPK${NC} ground truth bounding boxes \n"
 mkdir -p $CARPK_DIR/data/labels
+mkdir -p $CARPK_DIR/data/yolo_drawings
 python app/carpk/draw_bounding_boxes.py \
     --yolo --annots_dir $CARPK_DIR/data/Annotations/ \
     --images_dir $CARPK_DIR/data/Images/ \
