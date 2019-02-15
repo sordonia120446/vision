@@ -6,9 +6,11 @@ NC='\033[0m' # No Color
 
 PUCPR_DIR="PUCPR+_devkit"
 CARPK_DIR="CARPK_devkit"
-TARGET_DIR="/home/sam/Documents/sjsu/yolo_v3_pytorch_better/data"
+TARGET_DIR="/home/sam/Documents/sjsu/yolo_v3_pytorch_better/app/object_detection/data"
 
 echo "Compiling PUCPR and CARPK"
+
+echo "Target directory: $TARGET_DIR"
 
 echo -e "\nCompiling ${CYAN}PUCPR+${NC} ground truth bounding boxes \n"
 mkdir -p $PUCPR_DIR/data/labels
