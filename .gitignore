@@ -118,10 +118,11 @@ ENV/
 .mypy_cache/
 
 # Project-specific
-yolov3.weights
 yolo_output/
 test_video/
 
 # Image Sets
 CARPK_devkit/
 PUCPR+_devkit/
+PKLOT_devkit/
+PKLot_data/

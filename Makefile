@@ -32,8 +32,15 @@ clean-drawings:
 	@rm -rf PUCPR+_devkit/data/output_images
 	@rm -rf PUCPR+_devkit/data/yolo_drawings
 
+clean-pklot:
+	@rm -rf PKLOT_devkit
+
 opencv:
 	@docker-compose run vision python opencv.py -h
+
+pklot:
+	@mkdir -p PKLOT_devkit
+	@docker-compose run vision bash app/pklot/create_target_dir.sh
 
 shell:
 	@docker-compose run vision bash
@@ -45,4 +52,4 @@ test:
 	@docker-compose run vision bash ./app/opencv/get_test_video.sh
 	@docker-compose run vision python opencv.py -v test_video/big_buck_bunny.mp4
 
-.PHONY: build, build-fresh, carpk, clean, clean-carpk, clean-drawings, opencv, shell, status, test
+.PHONY: build, build-fresh, carpk, clean, clean-carpk, clean-drawings, clean-pklot, opencv, pklot, shell, status, test
