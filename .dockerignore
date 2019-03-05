@@ -4,4 +4,6 @@ venv/
 .gitignore
 test_video/
 CARPK_devkit/
-PUCPR+_devkit/
+PUCPR_devkit
+PKLOT_devkit/
+PKLot_data/

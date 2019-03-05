@@ -20,17 +20,17 @@ clean: clean-carpk
 
 clean-carpk:
 	@rm -rf CARPK_devkit/data/labels
-	@rm -rf PUCPR+_devkit/data/labels
+	@rm -rf PUCPR_devkit/data/labels
 	@rm -f CARPK_devkit/data/CARPK_devkit_train.txt
 	@rm -f CARPK_devkit/data/CARPK_devkit_test.txt
-	@rm -f PUCPR+_devkit/data/PUCPR+_devkit_train.txt
-	@rm -f PUCPR+_devkit/data/PUCPR+_devkit_test.txt
+	@rm -f PUCPR_devkit/data/PUCPR_devkit_train.txt
+	@rm -f PUCPR_devkit/data/PUCPR_devkit_test.txt
 
 clean-drawings:
 	@rm -rf CARPK_devkit/data/output_images
 	@rm -rf CARPK_devkit/data/yolo_drawings
-	@rm -rf PUCPR+_devkit/data/output_images
-	@rm -rf PUCPR+_devkit/data/yolo_drawings
+	@rm -rf PUCPR_devkit/data/output_images
+	@rm -rf PUCPR_devkit/data/yolo_drawings
 
 clean-pklot:
 	@rm -rf PKLOT_devkit

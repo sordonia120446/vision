@@ -62,7 +62,7 @@ def draw_yolo(labels, im, size):
 
 
 def draw_bounding_boxes(args):
-    """Wrapper function on the original CARPK and PUCPR+ dataset bounding box drawing."""
+    """Wrapper function on the original CARPK and PUCPR dataset bounding box drawing."""
     images_base = args.images_dir.split('/')[0]
     for image_filename in os.listdir(args.images_dir):
         base_filename = os.path.splitext(image_filename)[0]

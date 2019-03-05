@@ -26,7 +26,7 @@ To ensure the Docker built successfully, run the following command that will dow
 
 ```
 make test
-sudo chown <user_id>:<group_id> opencv_data/
+sudo chown -R <user_id>:<group_id> opencv_data/
 ```
 
 To see what user and group you are logged in as currently, run `id` in terminal.

@@ -123,6 +123,6 @@ test_video/
 
 # Image Sets
 CARPK_devkit/
-PUCPR+_devkit/
+PUCPR_devkit
 PKLOT_devkit/
 PKLot_data/
