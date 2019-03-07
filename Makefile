@@ -13,6 +13,9 @@ carpk-hsieh:
 	@echo "Using the OG Hsieh annotation format to draw on the images."
 	@docker-compose run vision bash app/carpk/hsieh_bounding_boxes.sh
 
+cnr:
+	@docker-compose run vision bash app/cnr/create_devkit.sh
+
 clean: clean-carpk
 	@rm -rf opencv_data/
 	@rm -rf test_video/
@@ -25,6 +28,9 @@ clean-carpk:
 	@rm -f CARPK_devkit/data/CARPK_devkit_test.txt
 	@rm -f PUCPR_devkit/data/PUCPR_devkit_train.txt
 	@rm -f PUCPR_devkit/data/PUCPR_devkit_test.txt
+
+clean-cnr:
+	@rm -rf CNR_devkit/
 
 clean-drawings:
 	@rm -rf CARPK_devkit/data/output_images
@@ -52,4 +58,4 @@ test:
 	@docker-compose run vision bash ./app/opencv/get_test_video.sh
 	@docker-compose run vision python opencv.py -v test_video/big_buck_bunny.mp4
 
-.PHONY: build, build-fresh, carpk, clean, clean-carpk, clean-drawings, clean-pklot, opencv, pklot, shell, status, test
+.PHONY: build, build-fresh, carpk, cnr, clean, clean-carpk, clean-cnr, clean-drawings, clean-pklot, opencv, pklot, shell, status, test
