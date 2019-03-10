@@ -58,6 +58,31 @@ You will want to change the ownership on the data folder created by the Docker. 
 sudo chown <user_id>:<group_id> <image-path>
 ```
 
+## Calculating anchor boxes
+
+To calculate anchor boxes, sorry, you can't do it in this repo. BUT there's the wonderful [darknet](https://github.com/AlexeyAB/darknet) fork by the Alex person that does it.
+
+### Prepare the dataset
+
+You just need to prep the data folder for this. Adjust the `$TARGET_DIR` variable in the creation bash script. Convert the contents of the train and test list files to look up the `labels` instead of the `Images`. Use the following `sed` command in `scripts/`.
+
+```
+sudo chmod -R <groud-id>:<user-id> <data-dir>
+bash scripts/anchor_boxes.sh <path to train or test file>
+```
+
+### Set up the darknet repo
+
+Run `make` in the `darknet` folder. There will probably be lots of warnings, but whatever.
+
+You are now ready to copy over the data folder into the `darknet` repo. Do that, and run the below commnd. You'll want 9 anchor boxes for YOLO v3 or 5 for YOLO v2.
+
+```
+./darknet detector calc_anchors <path to data file> -num_of_clusters 9 -width <image width> -height <image height> -show
+```
+
+The terminal thing hangs, so just Cntl+C out of there.
+
 # Dependencies
 
     Docker
