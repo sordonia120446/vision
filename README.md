@@ -67,7 +67,7 @@ To calculate anchor boxes, sorry, you can't do it in this repo. BUT there's the 
 You just need to prep the data folder for this. Adjust the `$TARGET_DIR` variable in the creation bash script. Convert the contents of the train and test list files to look up the `labels` instead of the `Images`. Use the following `sed` command in `scripts/`.
 
 ```
-sudo chmod -R <groud-id>:<user-id> <data-dir>
+sudo chown -R <groud-id>:<user-id> <data-dir>
 bash scripts/anchor_boxes.sh <path to train or test file>
 ```
 

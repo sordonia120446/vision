@@ -6,6 +6,7 @@ NC='\033[0m' # No Color
 
 WORKING_DIR="CNR_devkit"
 TARGET_DIR="/home/sam/Documents/sjsu/yolo_v3_pytorch_better/app/object_detection/data"
+# TARGET_DIR="/home/sam/Documents/workspace/deep_learning/darknet/data"
 
 echo "Target directory: $TARGET_DIR"
 

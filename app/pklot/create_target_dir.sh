@@ -21,7 +21,6 @@ mkdir -p $PKLOT_DIR/data/labels
 echo -e "\nCompiling ${CYAN}PKLOT${NC} ground truth bounding boxes \n"
 python app/pklot/draw_bounding_boxes.py \
     --yolo \
-    --verbose \
     --images_dir PKLot_data \
     --target_dir $TARGET_DIR \
     --working_dir $PKLOT_DIR
